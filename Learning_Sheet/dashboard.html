@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Sheet — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-logo small">&lt;/&gt;</div>
+      <strong>DSA Sheet</strong>
+    </div>
+    <div class="topbar-right">
+      <span class="welcome" id="welcome">Hi there</span>
+      <button class="btn btn-ghost" id="logoutBtn" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Progress overview -->
+    <section class="stats">
+      <div class="stat-card">
+        <span class="stat-value" id="statTotal">0</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-card solved">
+        <span class="stat-value" id="statSolved">0</span>
+        <span class="stat-label">Solved</span>
+      </div>
+      <div class="stat-card revisit">
+        <span class="stat-value" id="statRevisit">0</span>
+        <span class="stat-label">Revisit</span>
+      </div>
+      <div class="stat-card pending">
+        <span class="stat-value" id="statPending">0</span>
+        <span class="stat-label">Unsolved</span>
+      </div>
+      <div class="stat-card progress-wrap">
+        <div class="progress-head">
+          <span class="stat-label">Overall Progress</span>
+          <span class="stat-value small" id="statPercent">0%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+      <input type="search" id="searchInput" class="search" placeholder="Search problems…" />
+      <select id="topicFilter" class="select"></select>
+      <select id="difficultyFilter" class="select">
+        <option value="">All Difficulty</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+      <select id="statusFilter" class="select">
+        <option value="">All Status</option>
+        <option value="solved">Solved</option>
+        <option value="revisit">Revisit</option>
+        <option value="unsolved">Unsolved</option>
+      </select>
+    </section>
+
+    <!-- Problems grouped by topic -->
+    <section id="sheet" class="sheet"></section>
+  </main>
+
+  <!-- Notes modal -->
+  <div class="modal-overlay hidden" id="notesModal">
+    <div class="modal">
+      <h3 id="notesTitle">Notes</h3>
+      <textarea id="notesArea" rows="8" placeholder="Write your approach, complexity, edge cases…"></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="notesCancel" type="button">Cancel</button>
+        <button class="btn btn-primary" id="notesSave" type="button">Save Notes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

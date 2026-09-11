@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Sheet — Admin</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-logo small">&lt;/&gt;</div>
+      <strong>DSA Sheet</strong>
+      <span class="admin-pill">ADMIN</span>
+    </div>
+    <div class="topbar-right">
+      <span class="welcome" id="welcome">Admin</span>
+      <button class="btn btn-ghost" id="logoutBtn" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Tabs -->
+    <nav class="admin-tabs">
+      <button class="admin-tab active" data-view="stats" type="button">📊 Overview</button>
+      <button class="admin-tab" data-view="users" type="button">👥 Users</button>
+      <button class="admin-tab" data-view="problems" type="button">🗂️ Problems</button>
+    </nav>
+
+    <!-- Overview / stats -->
+    <section id="view-stats" class="admin-view">
+      <div class="stats admin-stats">
+        <div class="stat-card"><span class="stat-value" id="mUsers">0</span><span class="stat-label">Users</span></div>
+        <div class="stat-card"><span class="stat-value" id="mProblems">0</span><span class="stat-label">Problems</span></div>
+        <div class="stat-card solved"><span class="stat-value" id="mSolved">0</span><span class="stat-label">Total Solves</span></div>
+        <div class="stat-card"><span class="stat-value" id="mAvg">0%</span><span class="stat-label">Avg Progress</span></div>
+      </div>
+      <h3 class="section-title">Most-solved problems</h3>
+      <div id="topProblems" class="rank-list"></div>
+    </section>
+
+    <!-- Users -->
+    <section id="view-users" class="admin-view hidden">
+      <h3 class="section-title">Registered users</h3>
+      <div class="table-wrap">
+        <table class="admin-table" id="usersTable">
+          <thead>
+            <tr><th>Name</th><th>Email</th><th>Solved</th><th>Progress</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Problems -->
+    <section id="view-problems" class="admin-view hidden">
+      <div class="problems-head">
+        <h3 class="section-title">Manage problems</h3>
+        <button class="btn btn-primary btn-inline" id="addProblemBtn" type="button">+ Add problem</button>
+      </div>
+      <div class="table-wrap">
+        <table class="admin-table" id="problemsTable">
+          <thead>
+            <tr><th>Name</th><th>Topic</th><th>Difficulty</th><th>Link</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Problem edit modal -->
+  <div class="modal-overlay hidden" id="problemModal">
+    <div class="modal">
+      <h3 id="pmTitle">Add problem</h3>
+      <div class="auth-form" style="gap:12px">
+        <label><span>Name</span><input type="text" id="pmName" placeholder="Two Sum" /></label>
+        <label><span>Topic</span><input type="text" id="pmTopic" placeholder="Arrays" list="topicList" /></label>
+        <datalist id="topicList"></datalist>
+        <label><span>Difficulty</span>
+          <select class="select" id="pmDifficulty">
+            <option>Easy</option><option>Medium</option><option>Hard</option>
+          </select>
+        </label>
+        <label><span>Link</span><input type="url" id="pmLink" placeholder="https://leetcode.com/…" /></label>
+        <p class="form-error" id="pmError"></p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="pmCancel" type="button">Cancel</button>
+        <button class="btn btn-primary" id="pmSave" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

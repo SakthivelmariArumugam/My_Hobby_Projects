@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Sheet — Login</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-logo">&lt;/&gt;</div>
+      <h1>DSA Sheet</h1>
+      <p class="brand-tag">Track your Data Structures &amp; Algorithms journey</p>
+    </div>
+
+    <!-- Tab switch -->
+    <div class="tabs">
+      <button class="tab active" data-tab="login" type="button">Login</button>
+      <button class="tab" data-tab="signup" type="button">Sign Up</button>
+    </div>
+
+    <!-- Login form -->
+    <form id="loginForm" class="auth-form">
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" name="password" placeholder="Your password" autocomplete="current-password" required />
+      </label>
+      <p class="form-error" id="loginError"></p>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p class="hint">Create an account with Sign Up to get started.</p>
+    </form>
+
+    <!-- Signup form -->
+    <form id="signupForm" class="auth-form hidden">
+      <label>
+        <span>Full Name</span>
+        <input type="text" name="name" placeholder="Jane Doe" autocomplete="name" required />
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" name="password" placeholder="At least 6 characters" autocomplete="new-password" minlength="6" required />
+      </label>
+      <label>
+        <span>Confirm Password</span>
+        <input type="password" name="confirm" placeholder="Re-enter password" autocomplete="new-password" required />
+      </label>
+      <p class="form-error" id="signupError"></p>
+      <button type="submit" class="btn btn-primary">Create Account</button>
+    </form>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
